@@ -12,7 +12,7 @@ namespace Decorator
         {
             Console.WriteLine("Let's begin!");
 
-            var myGameService = new GameNameServie((new FastCachedGameThing(new SomeSlowExpensiveThing())));
+            var myGameService = new GameNameServie(new LoggableGameListProvider(new FastCachedGameThing(new SomeSlowExpensiveThing())));
 
             var list = myGameService.GetGameList();
             _displayGames(list);
